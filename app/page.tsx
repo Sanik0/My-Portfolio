@@ -24,9 +24,25 @@ import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa"
 import StaggeredMenu from "@/components/StaggeredMenu"
 import BlurText from "@/components/BlurText"
 import LogoLoop from "@/components/LogoLoop";
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
+import {
+  SiPhp,
+  SiLaravel,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiTypescript,
+  SiJavascript,
+  SiMysql,
+  SiGit,
+  SiGithub,
+  SiNodedotjs,
+  SiHtml5,
+  SiCss3,
+} from 'react-icons/si';
 import DecryptedText from "@/components/DecryptedText";
 import CountUp from "@/components/CountUp"
+import BorderGlow from "@/components/BorderGlow"
+import Shuffle from "@/components/Shuffle"
 
 
 export default function home() {
@@ -57,6 +73,7 @@ export default function home() {
 
   return (
     <div className="w-full relative">
+      {/* Menu Section */}
       <StaggeredMenu
         position="right"
         items={menuItems}
@@ -73,6 +90,7 @@ export default function home() {
         onMenuClose={() => console.log('Menu closed')}
       />
 
+      {/* Hero Section */}
       <div className="w-full flex flex-col items-center justify-center h-fit relative">
         <div className="h-full absolute z-10 inset-0 w-full">
           <ColorBends />
@@ -147,6 +165,7 @@ export default function home() {
 
       </div>
 
+      {/* Logo Loop */}
       <div style={{ height: '200px', position: 'relative', overflow: 'hidden', marginTop: '30px' }} className="w-full flex items-center justify-center">
 
         <LogoLoop
@@ -237,6 +256,95 @@ export default function home() {
           </div>
         </div>
 
+      </div>
+
+      {/* My Stack Section */}
+      <div className="w-full px-8 md:px-16 py-20 gap-10 flex flex-col">
+        <Shuffle
+          className="text-3xl md:text-5xl font-extrabold"
+          text="My Tech Stack"
+          shuffleDirection="right"
+          duration={0.35}
+          animationMode="evenodd"
+          shuffleTimes={1}
+          ease="power3.out"
+          stagger={0.03}
+          threshold={0.1}
+          triggerOnce={true}
+          triggerOnHover
+          respectReducedMotion={true}
+          loop
+          loopDelay={2}
+        />
+        <div className="w-full flex-wrap flex gap-5">
+          <BorderGlow
+            edgeSensitivity={6}
+            glowColor="40 80 80"
+            backgroundColor="#060010"
+            borderRadius={10}
+            glowRadius={40}
+            glowIntensity={1}
+            coneSpread={25}
+            animated={false}
+            colors={['#c084fc', '#f472b6', '#38bdf8']}
+          >
+            <div className="flex flex-col items-center justify-center cursor-pointer" style={{ padding: '2em' }}>
+              <SiPhp size={80} color="#777BB4" />
+              <p className="w-full text-center">PHP</p>
+            </div>
+          </BorderGlow>
+
+           <BorderGlow
+            edgeSensitivity={6}
+            glowColor="40 80 80"
+            backgroundColor="#060010"
+            borderRadius={10}
+            glowRadius={40}
+            glowIntensity={1}
+            coneSpread={25}
+            animated={false}
+            colors={['#c084fc', '#f472b6', '#38bdf8']}
+          >
+            <div className="flex flex-col items-center justify-center cursor-pointer" style={{ padding: '2em' }}>
+              <SiPhp size={80} color="#777BB4" />
+              <p className="w-full text-center">PHP</p>
+            </div>
+          </BorderGlow>
+
+           <BorderGlow
+            edgeSensitivity={6}
+            glowColor="40 80 80"
+            backgroundColor="#060010"
+            borderRadius={10}
+            glowRadius={40}
+            glowIntensity={1}
+            coneSpread={25}
+            animated={false}
+            colors={['#c084fc', '#f472b6', '#38bdf8']}
+          >
+            <div className="flex flex-col items-center justify-center cursor-pointer" style={{ padding: '2em' }}>
+              <SiPhp size={80} color="#777BB4" />
+              <p className="w-full text-center">PHP</p>
+            </div>
+          </BorderGlow>
+
+           <BorderGlow
+            edgeSensitivity={6}
+            glowColor="40 80 80"
+            backgroundColor="#060010"
+            borderRadius={10}
+            glowRadius={40}
+            glowIntensity={1}
+            coneSpread={25}
+            animated={false}
+            colors={['#c084fc', '#f472b6', '#38bdf8']}
+          >
+            <div className="flex flex-col items-center justify-center cursor-pointer" style={{ padding: '2em' }}>
+              <SiPhp size={80} color="#777BB4" />
+              <p className="w-full text-center">PHP</p>
+            </div>
+          </BorderGlow>
+        </div>
       </div>
     </div>
 
