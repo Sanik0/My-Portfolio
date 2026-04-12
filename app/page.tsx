@@ -25,6 +25,7 @@ import StaggeredMenu from "@/components/StaggeredMenu"
 import BlurText from "@/components/BlurText"
 import LogoLoop from "@/components/LogoLoop";
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
+import DecryptedText from "@/components/DecryptedText";
 
 
 export default function home() {
@@ -157,6 +158,62 @@ export default function home() {
           fadeOut
           useCustomRender={false}
         />
+      </div>
+
+      {/* About Section */}
+      <div className="w-full bg-orange-500 px-8 md:px-16 py-20 flex flex-col gap-16">
+
+        {/* Top row */}
+        <div className="flex w-full">
+
+          {/* Left — big text */}
+          <div className="flex flex-col w-full">
+            <DecryptedText
+              className="text-black text-3xl md:text-5xl font-black leading-tight tracking-tight"
+              text="Helping brands to stand out in the digital era.
+              Together we will set the new status quo. No
+              nonsense, always on the cutting edge."
+              animateOn="view"
+              revealDirection="start"
+              sequential
+              useOriginalCharsOnly={false}
+            />
+          </div>
+
+        </div>
+
+        {/* Center label — desktop */}
+        <div className="hidden md:flex flex-col items-center px-12 text-center">
+          <p className="text-black text-xl font-semibold">
+            Trusted by <em className="font-normal" style={{ fontFamily: "Georgia, serif" }}>people</em> worldwide
+          </p>
+        </div>
+
+        {/* Stats */}
+        <div className="flex flex-col md:flex-row items-center gap-0">
+          <p className="text-black text-xl font-semibold text-center w-full mb-8 md:mb-0 md:hidden">
+            Trusted by <em className="font-normal" style={{ fontFamily: "Georgia, serif" }}>people</em> worldwide
+          </p>
+
+          {/* Stat 1 */}
+          <div className="flex-1 flex flex-col items-center border-r border-black/20 py-6">
+            <span className="text-black text-6xl font-black tracking-tight">6,500+</span>
+            <span className="text-black/70 text-sm mt-2">Linkedin Connections</span>
+          </div>
+
+          {/* Stat 2 */}
+          <div className="flex-1 flex flex-col items-center border-l border-r border-black/20 py-6">
+            <span className="text-black text-6xl font-black tracking-tight">230+</span>
+            <span className="text-black/70 text-sm mt-2">Github Stars</span>
+          </div>
+
+          {/* Stat 3 */}
+          <div className="flex-1 flex flex-col items-center border-l border-black/20 py-6">
+            <span className="text-black text-6xl font-black tracking-tight">2</span>
+            <span className="text-black/70 text-sm mt-2">Years of experience</span>
+          </div>
+        </div>
+
       </div>
     </div>
 
