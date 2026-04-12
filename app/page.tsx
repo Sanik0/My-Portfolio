@@ -20,6 +20,7 @@ import ColorBends from "@/components/ColorBends"
 import PillNav from "@/components/PillNav"
 import { Pill } from "lucide-react"
 import ProfileCard from "@/components/ProfileCard"
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa"
 import StaggeredMenu from "@/components/StaggeredMenu"
 
 
@@ -27,8 +28,8 @@ export default function home() {
   const [date, setDate] = React.useState<Date | undefined>(new Date())
   const menuItems = [
     { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
-    { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
-    { label: 'Services', ariaLabel: 'View our services', link: '/services' },
+    { label: 'About Me', ariaLabel: 'Learn about me', link: '/about' },
+    { label: 'Projects', ariaLabel: 'View my projects', link: '/projects' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
   ];
 
@@ -61,7 +62,7 @@ export default function home() {
           <ColorBends />
         </div>
 
-        <div className="relative flex-col md:flex-row z-20 w-full p-5 max-w-6xl gap-7 md:gap-0 flex items-center justify-between min-h-screen">
+        <div className="relative mt-10 flex-col md:flex-row z-20 w-full p-5 max-w-6xl gap-7 md:gap-0 flex items-center justify-between min-h-screen">
           <div className=" px-2 max-w-md w-full">
             <ProfileCard
               className="w-full"
@@ -103,14 +104,14 @@ export default function home() {
 
             <div className="flex gap-3">
               {[
-                { label: "GitHub", href: "https://github.com" },
-                { label: "LinkedIn", href: "https://linkedin.com" },
-                { label: "Twitter", href: "https://twitter.com" },
-                { label: "Instagram", href: "https://instagram.com" },
+                { label: "GitHub", href: "https://github.com", icon: <FaGithub size={18} /> },
+                { label: "LinkedIn", href: "https://linkedin.com", icon: <FaLinkedin size={18} /> },
+                { label: "Twitter", href: "https://twitter.com", icon: <FaTwitter size={18} /> },
+                { label: "Instagram", href: "https://instagram.com", icon: <FaInstagram size={18} /> },
               ].map((s) => (
                 <a key={s.label} href={s.href}
-                  className="w-11 h-11 bg-zinc-900 border border-zinc-700 flex items-center justify-center text-sm font-bold hover:bg-orange-500 hover:border-orange-500 hover:text-black transition-colors">
-                  {s.label[0]}
+                  className="w-11 h-11 transition-all  bg-zinc-900 border border-zinc-700 flex items-center justify-center hover:bg-orange-500 hover:border-orange-500 hover:text-black duration-300">
+                  {s.icon}
                 </a>
               ))}
             </div>
