@@ -30,7 +30,7 @@
   z-index: 20;
 }
 
-.staggered-menu-header > * {
+.staggered-menu-header>* {
   pointer-events: auto;
 }
 
@@ -350,4 +350,28 @@
   .staggered-menu-wrapper[data-open] .sm-logo-img {
     filter: invert(100%);
   }
+}
+
+:root {
+  --sm-accent: #f97316;
+}
+
+.staggered-menu-panel {
+  background: #0a0a0a;
+}
+
+.sm-panel-item {
+  color: #ffffff;
+}
+
+.sm-panel-item:hover {
+  color: #f97316;
+}
+
+.sm-socials-link {
+  color: #ffffff;
+}
+
+.sm-socials-link:hover {
+  color: #f97316;
 }

@@ -49,9 +49,9 @@ export default function home() {
         menuButtonColor="#ffffff"
         openMenuButtonColor="#fff"
         changeMenuColorOnOpen={true}
-        colors={['#B19EEF', '#5227FF']}
+        accentColor="#f97316"
+        colors={['#fdba74', '#f97316']}
         logoUrl="/path-to-your-logo.svg"
-        accentColor="#5227FF"
         onMenuOpen={() => console.log('Menu opened')}
         onMenuClose={() => console.log('Menu closed')}
       />
@@ -93,7 +93,7 @@ export default function home() {
               A passionate Fullstack Developer with creative thinking. Loves creating sleek designs and building software out of the box — always making products the best and most efficient.
             </p>
             <div className="flex w-full gap-4 mb-8">
-              <button className="bg-white text-black font-bold px-8 py-3 text-sm">
+              <button className="bg-orange-600 text-white font-bold px-8 py-3 text-sm">
                 My Projects
               </button>
               <button className="bg-transparent text-white font-bold border-2 border-white px-8 py-3 text-sm">
