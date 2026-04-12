@@ -23,6 +23,8 @@ import ProfileCard from "@/components/ProfileCard"
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa"
 import StaggeredMenu from "@/components/StaggeredMenu"
 import BlurText from "@/components/BlurText"
+import LogoLoop from "@/components/LogoLoop";
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
 
 
 export default function home() {
@@ -32,6 +34,13 @@ export default function home() {
     { label: 'About Me', ariaLabel: 'Learn about me', link: '/about' },
     { label: 'Projects', ariaLabel: 'View my projects', link: '/projects' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
+  ];
+
+  const techLogos = [
+    { node: <SiReact />, title: "React", href: "https://react.dev" },
+    { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+    { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+    { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
   ];
 
   const socialItems = [
@@ -57,7 +66,7 @@ export default function home() {
         changeMenuColorOnOpen={true}
         accentColor="#f97316"
         colors={['#fdba74', '#f97316']}
-        logoUrl="/path-to-your-logo.svg"
+        logoUrl="/logoweb.svg"
         onMenuOpen={() => console.log('Menu opened')}
         onMenuClose={() => console.log('Menu closed')}
       />
@@ -65,6 +74,10 @@ export default function home() {
       <div className="w-full flex flex-col items-center justify-center h-fit relative">
         <div className="h-full absolute z-10 inset-0 w-full">
           <ColorBends />
+          {/* Fade to black at bottom */}
+          <div className="absolute inset-0" style={{
+            background: 'linear-gradient(to bottom, transparent 50%, black 100%)'
+          }} />
         </div>
 
         <div className="relative mt-10 flex-col md:flex-row z-20 w-full p-5 max-w-6xl gap-7 md:gap-0 flex items-center justify-between min-h-screen">
@@ -132,7 +145,19 @@ export default function home() {
 
       </div>
 
+      <div style={{ height: '200px', position: 'relative', overflow: 'hidden', marginTop: '30px' }} className="w-full flex items-center justify-center">
 
+        <LogoLoop
+          logos={techLogos}
+          speed={80}
+          direction="left"
+          logoHeight={60}
+          gap={60}
+          hoverSpeed={0}
+          fadeOut
+          useCustomRender={false}
+        />
+      </div>
     </div>
 
 
