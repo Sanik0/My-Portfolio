@@ -26,6 +26,7 @@ import BlurText from "@/components/BlurText"
 import LogoLoop from "@/components/LogoLoop";
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
 import DecryptedText from "@/components/DecryptedText";
+import CountUp from "@/components/CountUp"
 
 
 export default function home() {
@@ -195,19 +196,43 @@ export default function home() {
 
           {/* Stat 1 */}
           <div className="flex-1 flex flex-col items-center md:border-r border-black/20 py-6">
-            <span className="text-black text-6xl font-black tracking-tight">6,500+</span>
+            <span className="text-black text-6xl font-black tracking-tight"><CountUp
+              from={0}
+              to={500}
+              separator=","
+              direction="up"
+              duration={1}
+              className="count-up-text"
+              startCounting={false}
+            /></span>
             <span className="text-black/70 text-sm mt-2">Linkedin Connections</span>
           </div>
 
           {/* Stat 2 */}
           <div className="flex-1 flex flex-col items-center md:border-r border-black/20 py-6">
-            <span className="text-black text-6xl font-black tracking-tight">230+</span>
+            <span className="text-black text-6xl font-black tracking-tight"><CountUp
+              from={0}
+              to={230}
+              separator=","
+              direction="up"
+              duration={1}
+              className="count-up-text"
+              startCounting={false}
+            />+</span>
             <span className="text-black/70 text-sm mt-2">Github Stars</span>
           </div>
 
           {/* Stat 3 */}
           <div className="flex-1 flex flex-col items-center py-6">
-            <span className="text-black text-6xl font-black tracking-tight">2</span>
+            <span className="text-black text-6xl font-black tracking-tight"><CountUp
+              from={0}
+              to={3}
+              separator=","
+              direction="up"
+              duration={1}
+              className="count-up-text"
+              startCounting={false}
+            /></span>
             <span className="text-black/70 text-sm mt-2">Years of experience</span>
           </div>
         </div>
