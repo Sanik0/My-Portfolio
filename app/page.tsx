@@ -22,6 +22,7 @@ import { Pill } from "lucide-react"
 import ProfileCard from "@/components/ProfileCard"
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa"
 import StaggeredMenu from "@/components/StaggeredMenu"
+import BlurText from "@/components/BlurText"
 
 
 export default function home() {
@@ -38,6 +39,10 @@ export default function home() {
     { label: 'GitHub', link: 'https://github.com' },
     { label: 'LinkedIn', link: 'https://linkedin.com' }
   ];
+
+  const handleAnimationComplete = () => {
+    console.log('Animation completed!');
+  };
 
   return (
     <div className="w-full relative">
@@ -86,9 +91,16 @@ export default function home() {
 
 
           <div className="flex-1 max-w-xl">
+            <BlurText
+              text="Hello World!"
+              delay={200}
+              animateBy="words"
+              direction="top"
+              onAnimationComplete={handleAnimationComplete}
+              className="text-4xl md:text-6xl font-bold"
+            />
             <h1 className=" text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4">
-              Bonjour World!<br />
-              Im <em className="not-italic font-normal text-orange-500" style={{ fontFamily: "Georgia, serif" }}>Your Name</em>
+              Im <em className="not-italic font-normal text-orange-500" style={{ fontFamily: "Georgia, serif" }}>Ronan Sanico</em>
             </h1>
             <p className="text-zinc-200 text-base leading-relaxed max-w-md mb-8">
               A passionate Fullstack Developer with creative thinking. Loves creating sleek designs and building software out of the box — always making products the best and most efficient.
