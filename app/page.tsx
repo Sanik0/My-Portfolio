@@ -64,6 +64,7 @@ import { VscVscode } from "react-icons/vsc"
 import { FaAws } from "react-icons/fa";
 import ScrambledText from "@/components/ScrambledText"
 import { FaBootstrap } from "react-icons/fa";
+import MagicBento from "@/components/MagicBento"
 
 
 export default function home() {
@@ -355,6 +356,24 @@ export default function home() {
           </div>
         </div>
       </div>
+
+      {/* Bento Section */}
+      <div className="flex items-center justify-center w-full">
+        <MagicBento
+          textAutoHide={true}
+          enableStars
+          enableSpotlight
+          enableBorderGlow={true}
+          enableTilt={false}
+          enableMagnetism={true}
+          clickEffect
+          spotlightRadius={400}
+          particleCount={0}
+          glowColor="255, 165, 0"
+          disableAnimations={false}
+        />
+      </div>
+
     </div>
 
 
