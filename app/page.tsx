@@ -64,7 +64,7 @@ import { VscVscode } from "react-icons/vsc"
 import { FaAws } from "react-icons/fa";
 import ScrambledText from "@/components/ScrambledText"
 import { FaBootstrap } from "react-icons/fa";
-import MagicBento from "@/components/MagicBento"
+import SplitText from "@/components/SplitText"
 
 
 export default function home() {
@@ -202,9 +202,21 @@ export default function home() {
             <h1 className=" text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4">
               Im <em className="not-italic font-normal text-orange-500" style={{ fontFamily: "Georgia, serif" }}>Ronan Sanico</em>
             </h1>
-            <p className="text-zinc-200 text-base leading-relaxed max-w-md mb-8">
-              A passionate Fullstack Developer with creative thinking. Loves creating sleek designs and building software out of the box — always making products the best and most efficient.
-            </p>
+            <SplitText
+              text=" A passionate Fullstack Developer with creative thinking. Loves creating sleek designs and building software out of the box — always making products the best and most efficient."
+              className="text-base text-zinc-200 max-w-md font-semibold"
+              delay={10}
+              duration={1.88}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="-100px"
+              textAlign="left"
+              onLetterAnimationComplete={handleAnimationComplete}
+              showCallback
+            />
             <div className="flex w-full gap-4 mb-8">
               <button className="bg-orange-600 text-white font-bold px-8 py-3 text-sm">
                 My Projects
@@ -358,20 +370,29 @@ export default function home() {
       </div>
 
       {/* Bento Section */}
-      <div className="flex items-center justify-center w-full">
-        <MagicBento
-          textAutoHide={true}
-          enableStars
-          enableSpotlight
-          enableBorderGlow={true}
-          enableTilt={false}
-          enableMagnetism={true}
-          clickEffect
-          spotlightRadius={400}
-          particleCount={0}
-          glowColor="255, 165, 0"
-          disableAnimations={false}
-        />
+      <div className="w-full flex items-center p-5 justify-center">
+        <div className="grid grid-cols-4 w-full max-w-6xl grid-rows-2 gap-3"
+        style={{ gridTemplateRows: 'repeat(2, 200px)' }}>
+          <div className="col-span-1 row-span-2 bg-zinc-900 rounded-2xl p-4">
+            Card 1
+          </div>
+
+          <div className="col-span-1 row-span-1 bg-zinc-900 rounded-2xl p-4">
+            card 2
+          </div>
+
+          <div className="col-span-2 row-span-1 bg-zinc-900 rounded-2xl p-4">
+            Card 1
+          </div>
+
+          <div className="col-span-2 row-span-1 bg-orange-600 rounded-2xl p-4">
+            card 3
+          </div>
+
+          <div className="col-span-1 row-span-1 bg-zinc-900 rounded-2xl p-4">
+            Card 4
+          </div>
+        </div>
       </div>
 
     </div>
