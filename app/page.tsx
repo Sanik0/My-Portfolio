@@ -38,11 +38,30 @@ import {
   SiNodedotjs,
   SiHtml5,
   SiCss3,
+  SiFigma,
+  SiCplusplus,
+  SiGreensock,
+  SiVuedotjs,
+  SiFlutter,
+  SiExpress,
+  SiSass,
+  SiDjango,
+  SiShadcnui,
+  SiPostgresql,
+  SiMongodb,
+  SiSupabase,
+  SiCanva,
+  SiPython,
+  SiGnubash,
 } from 'react-icons/si';
 import DecryptedText from "@/components/DecryptedText";
 import CountUp from "@/components/CountUp"
 import BorderGlow from "@/components/BorderGlow"
 import Shuffle from "@/components/Shuffle"
+import { VscVscode } from "react-icons/vsc"
+import { FaAws } from "react-icons/fa";
+import ScrambledText from "@/components/ScrambledText"
+import { FaBootstrap } from "react-icons/fa";
 
 
 export default function home() {
@@ -70,6 +89,49 @@ export default function home() {
   const handleAnimationComplete = () => {
     console.log('Animation completed!');
   };
+
+  const techStack = [
+    { icon: <SiPhp size={80} color="#777BB4" />, label: "PHP" },
+    { icon: <SiJavascript size={80} color="#F7DF1E" />, label: "JavaScript" },
+    { icon: <SiTypescript size={80} color="#3178C6" />, label: "TypeScript" },
+    { icon: <SiCplusplus size={80} color="#00599C" />, label: "C++" },
+    { icon: <SiReact size={80} color="#61DAFB" />, label: "React" },
+    { icon: <SiNextdotjs size={80} color="#ffffff" />, label: "Next.js" },
+    { icon: <SiVuedotjs size={80} color="#42B883" />, label: "Vue" },
+    { icon: <SiFlutter size={80} color="#02569B" />, label: "Flutter" },
+    { icon: <SiTailwindcss size={80} color="#38BDF8" />, label: "Tailwind" },
+    { icon: <SiSass size={80} color="#CC6699" />, label: "Sass" },
+    { icon: <SiNodedotjs size={80} color="#339933" />, label: "Node.js" },
+    { icon: <SiExpress size={80} color="#ffffff" />, label: "Express" },
+    { icon: <SiDjango size={80} color="#092E20" />, label: "Django" },
+    { icon: <SiLaravel size={80} color="#FF2D20" />, label: "Laravel" },
+    { icon: <SiMysql size={80} color="#4479A1" />, label: "MySQL" },
+    { icon: <SiPostgresql size={80} color="#4169E1" />, label: "PostgreSQL" },
+    { icon: <SiMongodb size={80} color="#47A248" />, label: "MongoDB" },
+    { icon: <SiSupabase size={80} color="#3ECF8E" />, label: "Supabase" },
+    { icon: <SiGreensock size={80} color="#88CE02" />, label: "GSAP" },
+    { icon: <SiFigma size={80} color="#F24E1E" />, label: "Figma" },
+    { icon: <SiGit size={80} color="#F05032" />, label: "Git" },
+    { icon: <SiGithub size={80} color="#ffffff" />, label: "GitHub" },
+    { icon: <SiCanva size={80} color="#00C4CC" />, label: "Canva" },
+    { icon: <SiPython size={80} color="#3776AB" />, label: "Python" },
+    { icon: <SiGnubash size={80} color="#4EAA25" />, label: "Bash" },
+    { icon: <VscVscode size={80} color="#007ACC" />, label: "VS Code" },
+    { icon: <FaAws size={80} color="#FF9900" />, label: "AWS" },
+    { icon: <FaBootstrap size={80} color="#7952B3" />, label: "Bootstrap" },
+  ]
+
+  const glowProps = {
+    edgeSensitivity: 6,
+    glowColor: "40 80 80",
+    backgroundColor: "#060010",
+    borderRadius: 10,
+    glowRadius: 40,
+    glowIntensity: 1,
+    coneSpread: 25,
+    animated: false,
+    colors: ['#c084fc', '#f472b6', '#38bdf8'],
+  }
 
   return (
     <div className="w-full relative">
@@ -188,17 +250,17 @@ export default function home() {
 
           {/* Left — big text */}
           <div className="flex flex-col w-full">
-            <DecryptedText
-              className="text-black text-3xl md:text-5xl font-black leading-tight tracking-tight"
-              encryptedClassName="text-black text-3xl md:text-5xl font-black leading-tight tracking-tight"
-              text="Helping brands to stand out in the digital era.
-              Together we will set the new status quo. No
-              nonsense, always on the cutting edge."
-              animateOn="view"
-              revealDirection="start"
-              sequential
-              useOriginalCharsOnly={false}
-            />
+            <ScrambledText
+              className="text-black text-3xl md:text-5xl font-extrabold leading-tight tracking-tight"
+              radius={100}
+              duration={1.2}
+              speed={0.5}
+              scrambleChars=".:"
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Similique pariatur dignissimos porro eius quam doloremque
+              et enim velit nobis maxime.
+            </ScrambledText>
           </div>
 
         </div>
@@ -261,7 +323,7 @@ export default function home() {
       {/* My Stack Section */}
       <div className="w-full px-8 md:px-16 py-20 gap-10 flex flex-col">
         <Shuffle
-          className="text-3xl md:text-5xl font-extrabold"
+          className="text-xl md:text-5xl font-bold"
           text="My Tech Stack"
           shuffleDirection="right"
           duration={0.35}
@@ -276,74 +338,17 @@ export default function home() {
           loop
           loopDelay={2}
         />
-        <div className="w-full flex-wrap flex gap-5">
-          <BorderGlow
-            edgeSensitivity={6}
-            glowColor="40 80 80"
-            backgroundColor="#060010"
-            borderRadius={10}
-            glowRadius={40}
-            glowIntensity={1}
-            coneSpread={25}
-            animated={false}
-            colors={['#c084fc', '#f472b6', '#38bdf8']}
-          >
-            <div className="flex flex-col items-center justify-center cursor-pointer" style={{ padding: '2em' }}>
-              <SiPhp size={80} color="#777BB4" />
-              <p className="w-full text-center">PHP</p>
-            </div>
-          </BorderGlow>
-
-           <BorderGlow
-            edgeSensitivity={6}
-            glowColor="40 80 80"
-            backgroundColor="#060010"
-            borderRadius={10}
-            glowRadius={40}
-            glowIntensity={1}
-            coneSpread={25}
-            animated={false}
-            colors={['#c084fc', '#f472b6', '#38bdf8']}
-          >
-            <div className="flex flex-col items-center justify-center cursor-pointer" style={{ padding: '2em' }}>
-              <SiPhp size={80} color="#777BB4" />
-              <p className="w-full text-center">PHP</p>
-            </div>
-          </BorderGlow>
-
-           <BorderGlow
-            edgeSensitivity={6}
-            glowColor="40 80 80"
-            backgroundColor="#060010"
-            borderRadius={10}
-            glowRadius={40}
-            glowIntensity={1}
-            coneSpread={25}
-            animated={false}
-            colors={['#c084fc', '#f472b6', '#38bdf8']}
-          >
-            <div className="flex flex-col items-center justify-center cursor-pointer" style={{ padding: '2em' }}>
-              <SiPhp size={80} color="#777BB4" />
-              <p className="w-full text-center">PHP</p>
-            </div>
-          </BorderGlow>
-
-           <BorderGlow
-            edgeSensitivity={6}
-            glowColor="40 80 80"
-            backgroundColor="#060010"
-            borderRadius={10}
-            glowRadius={40}
-            glowIntensity={1}
-            coneSpread={25}
-            animated={false}
-            colors={['#c084fc', '#f472b6', '#38bdf8']}
-          >
-            <div className="flex flex-col items-center justify-center cursor-pointer" style={{ padding: '2em' }}>
-              <SiPhp size={80} color="#777BB4" />
-              <p className="w-full text-center">PHP</p>
-            </div>
-          </BorderGlow>
+        <div className="w-full flex-wrap items-center justify-center flex gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5">
+            {techStack.map((tech) => (
+              <BorderGlow key={tech.label} {...glowProps}>
+                <div className="flex flex-col items-center justify-center cursor-pointer" style={{ padding: '2em' }}>
+                  {tech.icon}
+                  <p className="w-full text-center mt-2">{tech.label}</p>
+                </div>
+              </BorderGlow>
+            ))}
+          </div>
         </div>
       </div>
     </div>
