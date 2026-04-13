@@ -53,6 +53,8 @@ import {
   SiCanva,
   SiPython,
   SiGnubash,
+  SiNumpy,
+  SiTensorflow,
 } from 'react-icons/si';
 import DecryptedText from "@/components/DecryptedText";
 import CountUp from "@/components/CountUp"
@@ -119,6 +121,8 @@ export default function home() {
     { icon: <VscVscode size={80} color="#007ACC" />, label: "VS Code" },
     { icon: <FaAws size={80} color="#FF9900" />, label: "AWS" },
     { icon: <FaBootstrap size={80} color="#7952B3" />, label: "Bootstrap" },
+    { icon: <SiNumpy size={80} color="#013243" />, label: "NumPy" },
+    { icon: <SiTensorflow size={80} color="#FF6F00" />, label: "TensorFlow" },
   ]
 
   const glowProps = {
@@ -243,10 +247,10 @@ export default function home() {
       </div>
 
       {/* About Section */}
-      <div className="w-full bg-orange-500 px-8 md:px-16 py-20 flex flex-col gap-16">
+      <div className="w-full bg-orange-500 px-8 items-center justify-center md:px-16 py-20 flex flex-col gap-16">
 
         {/* Top row */}
-        <div className="flex w-full">
+        <div className="flex w-full max-w-6xl">
 
           {/* Left — big text */}
           <div className="flex flex-col w-full">
@@ -273,7 +277,7 @@ export default function home() {
         </div>
 
         {/* Stats */}
-        <div className="flex flex-col md:flex-row items-center gap-0">
+        <div className="flex w-full flex-col md:flex-row items-center gap-0">
 
           {/* Stat 1 */}
           <div className="flex-1 flex flex-col items-center md:border-r border-black/20 py-6">
