@@ -65,6 +65,7 @@ import { FaAws } from "react-icons/fa";
 import ScrambledText from "@/components/ScrambledText"
 import { FaBootstrap } from "react-icons/fa";
 import SplitText from "@/components/SplitText"
+import RotatingText from "@/components/RotatingText"
 
 
 export default function home() {
@@ -370,9 +371,32 @@ export default function home() {
       </div>
 
       {/* Bento Section */}
-      <div className="w-full flex items-center p-5 py-16 md:py-20 justify-center">
+      <div className="w-full flex gap-10 flex-col items-center p-5 py-16 md:py-20 justify-center">
+        <div className="flex items-center flex-col md:flex-row justify-center gap-5">
+          <h1 className="font-bold text-4xl md:text-5xl">
+            FOCUSED ON
+          </h1>
+          <RotatingText
+            texts={['PROGRAMMING', 'DESIGNING', 'CREATING', 'INNOVATING']}
+            mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+            staggerFrom="last"
+            className="font-bold text-4xl md:text-5xl bg-orange-600 px-3 py-2"
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-120%" }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={2000}
+            splitBy="characters"
+            auto
+            loop
+          />
+        </div>
+
+
         <div className="grid grid-cols-4 w-full max-w-6xl grid-rows-2 gap-3"
-        style={{ gridTemplateRows: 'repeat(2, 250px)' }}>
+          style={{ gridTemplateRows: 'repeat(2, 250px)' }}>
           <div className="col-span-1 row-span-2 bg-zinc-900 rounded-2xl p-4">
             Card 1
           </div>
