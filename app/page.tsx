@@ -197,14 +197,14 @@ export default function home() {
               animateBy="words"
               direction="top"
               onAnimationComplete={handleAnimationComplete}
-              className="text-4xl md:text-6xl font-bold"
+              className="text-4xl md:text-6xl font-semibold"
             />
             <h1 className=" text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4">
               Im <em className="not-italic font-normal text-orange-500" style={{ fontFamily: "Georgia, serif" }}>Ronan Sanico</em>
             </h1>
             <SplitText
               text=" A passionate Fullstack Developer with creative thinking. Loves creating sleek designs and building software out of the box — always making products the best and most efficient."
-              className="text-base text-zinc-200 max-w-md font-semibold"
+              className="text-base text-zinc-200 mb-5 max-w-md font-semibold"
               delay={10}
               duration={1.88}
               ease="power3.out"
@@ -260,7 +260,7 @@ export default function home() {
       </div>
 
       {/* About Section */}
-      <div className="w-full bg-orange-500 px-8 items-center justify-center md:px-16 py-20 flex flex-col gap-16">
+      <div className="w-full bg-orange-500 px-8 items-center justify-center md:px-20 py-16 flex flex-col gap-16">
 
         {/* Top row */}
         <div className="flex w-full max-w-6xl">
@@ -338,7 +338,7 @@ export default function home() {
       </div>
 
       {/* My Stack Section */}
-      <div className="w-full px-8 md:px-16 py-20 gap-10 flex flex-col">
+      <div className="w-full px-8 md:px-20 py-16 gap-10 flex flex-col">
         <Shuffle
           className="text-xl md:text-5xl font-bold"
           text="My Tech Stack"
@@ -370,9 +370,9 @@ export default function home() {
       </div>
 
       {/* Bento Section */}
-      <div className="w-full flex items-center p-5 justify-center">
+      <div className="w-full flex items-center p-5 py-16 md:py-20 justify-center">
         <div className="grid grid-cols-4 w-full max-w-6xl grid-rows-2 gap-3"
-        style={{ gridTemplateRows: 'repeat(2, 200px)' }}>
+        style={{ gridTemplateRows: 'repeat(2, 250px)' }}>
           <div className="col-span-1 row-span-2 bg-zinc-900 rounded-2xl p-4">
             Card 1
           </div>

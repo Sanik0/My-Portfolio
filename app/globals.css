@@ -3,6 +3,28 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #f97316 #0a0a0a;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f97316;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ea6a00;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 
@@ -123,13 +145,16 @@ body {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
