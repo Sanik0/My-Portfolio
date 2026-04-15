@@ -1,6 +1,10 @@
 "use client"
 
 import * as React from "react"
+// Add these imports at the top of page.tsx
+import { useEffect, useRef, useState } from "react";
+import { Chart, ArcElement, DoughnutController, Tooltip } from "chart.js";
+Chart.register(ArcElement, DoughnutController, Tooltip);
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -69,6 +73,7 @@ import RotatingText from "@/components/RotatingText"
 import dynamic from "next/dynamic";
 import MetaBalls from "@/components/MetaBalls";
 
+
 const GitHubCalendar = dynamic(
   () => import("react-github-calendar").then((mod) => {
     console.log("Module exports:", Object.keys(mod));
@@ -80,7 +85,6 @@ const GitHubCalendar = dynamic(
   }
 );
 
-import { useEffect, useRef, useState } from "react";
 
 
 export default function home() {
@@ -91,6 +95,7 @@ export default function home() {
     { label: 'Projects', ariaLabel: 'View my projects', link: '/projects' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
   ];
+
 
 
   const techLogos = [
@@ -218,6 +223,77 @@ export default function home() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+    );
+  }
+
+  function DonutChartCard() {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const chartRef = useRef<Chart | null>(null);
+
+    const donutSkills = [
+      { label: "UI/UX", value: 35, color: "#f97316" },
+      { label: "Backend", value: 25, color: "#fb923c" },
+      { label: "DevOps", value: 12, color: "#431407" },
+      { label: "Other", value: 8, color: "#3f3f46" },
+    ];
+
+    useEffect(() => {
+      if (!canvasRef.current) return;
+      chartRef.current = new Chart(canvasRef.current, {
+        type: "doughnut",
+        data: {
+          labels: donutSkills.map((s) => s.label),
+          datasets: [{
+            data: donutSkills.map((s) => s.value),
+            backgroundColor: donutSkills.map((s) => s.color),
+            borderColor: "#18181b",
+            borderWidth: 3,
+            hoverOffset: 6,
+            borderRadius: 3,
+          }],
+        },
+        options: {
+          responsive: false,
+          cutout: "68%",
+          animation: { animateRotate: true, duration: 1200, easing: "easeInOutQuart" },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: { label: (ctx) => ` ${ctx.label}: ${ctx.parsed}%` },
+              backgroundColor: "#27272a",
+              titleColor: "#f4f4f5",
+              bodyColor: "#a1a1aa",
+              borderColor: "#3f3f46",
+              borderWidth: 1,
+              padding: 8,
+            },
+          },
+        },
+      });
+      return () => { chartRef.current?.destroy(); };
+    }, []);
+
+    return (
+      <div className="col-span-1 row-span-1 bg-zinc-900 rounded-md p-4 flex flex-col justify-between">
+        <p className="text-xs font-medium tracking-widest text-zinc-500 uppercase mb-3">Skills</p>
+        <div className="flex items-center gap-4">
+          <div className="relative flex-shrink-0">
+            <canvas ref={canvasRef} width={150} height={150} aria-label="Skill distribution donut chart" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+              <span className="text-lg font-semibold text-zinc-100">100%</span>
+              <span className="text-[9px] tracking-widest text-zinc-500 uppercase">Focus</span>
+            </div>
+          </div>
+          <div className="flex flex-col gap-1.5">
+            {donutSkills.map((s) => (
+              <span key={s.label} className="flex items-center gap-2 text-[11px] text-zinc-400">
+                <span className="w-2 h-2 rounded-sm flex-shrink-0" style={{ background: s.color }} />
+                {s.label} {s.value}%
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     );
@@ -485,7 +561,7 @@ export default function home() {
           <SkillSetCard />
 
           <div className="col-span-1 row-span-1 bg-zinc-900 rounded-md p-4">
-            card 2
+            <DonutChartCard />
           </div>
 
           <div className="col-span-1 md:col-span-2 row-span-1 bg-zinc-900 flex items-center justify-center rounded-md p-4">
@@ -505,7 +581,7 @@ export default function home() {
             <h1 className="text-3xl md:text-4xl flex-1 font-extrabold text-black">
               Building for the web, obsessed with the details
             </h1>
-            <div className="w-full md:w-[30%] h-full">
+            <div className="w-full md:w-[40%] h-full">
               <MetaBalls
                 color="#000000"
                 cursorBallColor="#000000"
