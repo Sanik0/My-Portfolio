@@ -145,6 +145,27 @@ body {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Add this to your globals.css */
+.react-activity-calendar scrollbar {
+  display: none !important;
+}
+
+/* Specifically target the container to hide any overflow UI */
+.react-github-calendar__chart {
+  overflow: hidden !important;
+}
+
+/* To hide the standard browser scrollbar if it persists */
+.react-activity-calendar > div {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.react-activity-calendar > div::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari and Opera */
+}
+
+
 
 @layer base {
   * {

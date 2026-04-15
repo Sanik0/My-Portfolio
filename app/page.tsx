@@ -66,6 +66,7 @@ import ScrambledText from "@/components/ScrambledText"
 import { FaBootstrap } from "react-icons/fa";
 import SplitText from "@/components/SplitText"
 import RotatingText from "@/components/RotatingText"
+import { GitHubCalendar } from 'react-github-calendar';
 
 
 export default function home() {
@@ -76,6 +77,7 @@ export default function home() {
     { label: 'Projects', ariaLabel: 'View my projects', link: '/projects' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
   ];
+
 
   const techLogos = [
     { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -372,22 +374,22 @@ export default function home() {
 
       {/* Bento Section */}
       <div className="w-full flex gap-10 flex-col items-center p-5 py-16 md:py-20 justify-center">
-        <div className="flex items-center flex-col md:flex-row justify-center gap-5">
+        <div className="flex items-center flex-col md:flex-row justify-center gap-3">
           <h1 className="font-bold text-4xl md:text-5xl">
             FOCUSED ON
           </h1>
           <RotatingText
             texts={['PROGRAMMING', 'DESIGNING', 'CREATING', 'INNOVATING']}
-            mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+            mainClassName="px-2 sm:px-2 md:px-2 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
             staggerFrom="last"
-            className="font-bold text-4xl md:text-5xl bg-orange-600 px-3 py-2"
+            className="font-bold text-4xl md:text-5xl text-orange-600 px-2 py-2"
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "-120%" }}
             staggerDuration={0.025}
             splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
             transition={{ type: "spring", damping: 30, stiffness: 400 }}
-            rotationInterval={2000}
+            rotationInterval={2500}
             splitBy="characters"
             auto
             loop
@@ -395,28 +397,66 @@ export default function home() {
         </div>
 
 
-        <div className="grid grid-cols-4 w-full max-w-6xl grid-rows-2 gap-3"
+        <div className="grid grid-cols-1 md:grid-cols-4 w-full max-w-6xl grid-rows-2 gap-3"
           style={{ gridTemplateRows: 'repeat(2, 250px)' }}>
-          <div className="col-span-1 row-span-2 bg-zinc-900 rounded-2xl p-4">
-            Card 1
+          <div className="col-span-1 row-span-2 bg-zinc-900 rounded-md p-5 py-6">
+            <p className="font-bold text-base md:text-lg mb-4">Skill Set</p>
+
+            <div className="space-y-4">
+              {[
+                { name: "HTML", level: 95 },
+                { name: "CSS / Tailwind", level: 90 },
+                { name: "JavaScript", level: 85 },
+                { name: "React / Next.js", level: 80 },
+                { name: "PHP", level: 85 },
+                { name: "MySQL", level: 80 },
+                { name: "UI/UX Design", level: 75 },
+                { name: "UI/UX Design", level: 75 },
+                { name: "UI/UX Design", level: 75 },
+              ].map((skill, index) => (
+                <div key={index}>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>{skill.name}</span>
+                    <span className="text-orange-400">{skill.level}%</span>
+                  </div>
+
+                  <div className="w-full h-2 bg-zinc-700 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full transition-all duration-500"
+                      style={{ width: `${skill.level}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="col-span-1 row-span-1 bg-zinc-900 rounded-2xl p-4">
+          <div className="col-span-1 row-span-1 bg-zinc-900 rounded-md p-4">
             card 2
           </div>
 
-          <div className="col-span-2 row-span-1 bg-zinc-900 rounded-2xl p-4">
-            Card 1
+          <div className="col-span-1 md:col-span-2 row-span-1 bg-zinc-900 flex items-center justify-center rounded-md p-4">
+            <GitHubCalendar
+              username="Sanik0"
+              blockSize={15}   // Default is 12
+              blockMargin={2}  // Default is 4
+              className="w-full"
+              theme={{
+                light: ['#ebedf0', '#ff9b00'], // Light gray to bright orange
+                dark: ['#161b22', '#f97316'],  // Dark gray to Tailwind orange-500
+              }}
+            />
           </div>
 
-          <div className="col-span-2 row-span-1 bg-orange-600 rounded-2xl p-4">
+          <div className="col-span-1 md:col-span-2 row-span-1 bg-orange-600 rounded-md p-4">
             card 3
           </div>
 
-          <div className="col-span-1 row-span-1 bg-zinc-900 rounded-2xl p-4">
+          <div className="col-span-1 row-span-1 bg-zinc-900 rounded-md p-4">
             Card 4
           </div>
         </div>
+
       </div>
 
     </div>
