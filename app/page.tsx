@@ -66,7 +66,20 @@ import ScrambledText from "@/components/ScrambledText"
 import { FaBootstrap } from "react-icons/fa";
 import SplitText from "@/components/SplitText"
 import RotatingText from "@/components/RotatingText"
-import { GitHubCalendar } from 'react-github-calendar';
+import dynamic from "next/dynamic";
+import MetaBalls from "@/components/MetaBalls";
+
+const GitHubCalendar = dynamic(
+  () => import("react-github-calendar").then((mod) => {
+    console.log("Module exports:", Object.keys(mod));
+    return mod.default || mod.GitHubCalendar || Object.values(mod)[0];
+  }),
+  {
+    ssr: false,
+    loading: () => <div className="w-full h-16 bg-zinc-800 rounded animate-pulse" />,
+  }
+);
+
 import { useEffect, useRef, useState } from "react";
 
 
@@ -163,11 +176,13 @@ export default function home() {
     const skills = [
       { name: "HTML", level: 95 },
       { name: "CSS / Tailwind", level: 90 },
-      { name: "JavaScript", level: 85 },
-      { name: "React / Next.js", level: 80 },
-      { name: "PHP", level: 85 },
-      { name: "MySQL", level: 80 },
-      { name: "UI/UX Design", level: 75 },
+      { name: "JavaScript", level: 80 },
+      { name: "React / Next.js", level: 70 },
+      { name: "PHP", level: 90 },
+      { name: "Database", level: 80 },
+      { name: "UI/UX Design", level: 95 },
+      { name: "Machine Learning", level: 30 },
+      { name: "Framer / Animation", level: 40 },
     ];
 
     return (
@@ -213,6 +228,7 @@ export default function home() {
       {/* Menu Section */}
       <StaggeredMenu
         position="right"
+        className="h-full"
         items={menuItems}
         socialItems={socialItems}
         displaySocials
@@ -237,7 +253,7 @@ export default function home() {
           }} />
         </div>
 
-        <div className="relative mt-10 flex-col md:flex-row z-20 w-full p-5 max-w-6xl gap-7 md:gap-0 flex items-center justify-between min-h-screen">
+        <div className="relative mt-10 flex-col md:flex-row z-20 w-full p-5 max-w-6xl gap-7 md:gap-5 flex items-center justify-between min-h-screen">
           <div className=" px-2 max-w-md w-full">
             <ProfileCard
               className="w-full"
@@ -485,8 +501,24 @@ export default function home() {
             />
           </div>
 
-          <div className="col-span-1 md:col-span-2 row-span-1 bg-orange-600 rounded-md p-4">
-            card 3
+          <div className="col-span-1 md:col-span-2 flex items-start md:flex-row flex-col justify-center gap-5 row-span-1 bg-orange-600 rounded-md p-4">
+            <h1 className="text-3xl md:text-4xl flex-1 font-extrabold text-black">
+              Building for the web, obsessed with the details
+            </h1>
+            <div className="w-full md:w-[30%] h-full">
+              <MetaBalls
+                color="#000000"
+                cursorBallColor="#000000"
+                cursorBallSize={2}
+                ballCount={15}
+                animationSize={25}
+                enableMouseInteraction
+                enableTransparency={true}
+                hoverSmoothness={0.15}
+                clumpFactor={1}
+                speed={0.3}
+              />
+            </div>
           </div>
 
           <div className="col-span-1 row-span-1 bg-zinc-900 rounded-md p-4">
