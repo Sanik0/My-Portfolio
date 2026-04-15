@@ -67,6 +67,7 @@ import { FaBootstrap } from "react-icons/fa";
 import SplitText from "@/components/SplitText"
 import RotatingText from "@/components/RotatingText"
 import { GitHubCalendar } from 'react-github-calendar';
+import { useEffect, useRef, useState } from "react";
 
 
 export default function home() {
@@ -139,6 +140,72 @@ export default function home() {
     coneSpread: 25,
     animated: false,
     colors: ['#c084fc', '#f472b6', '#38bdf8'],
+  }
+
+  function SkillSetCard() {
+    const [animated, setAnimated] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setAnimated(true);
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.2 }
+      );
+      if (ref.current) observer.observe(ref.current);
+      return () => observer.disconnect();
+    }, []);
+
+    const skills = [
+      { name: "HTML", level: 95 },
+      { name: "CSS / Tailwind", level: 90 },
+      { name: "JavaScript", level: 85 },
+      { name: "React / Next.js", level: 80 },
+      { name: "PHP", level: 85 },
+      { name: "MySQL", level: 80 },
+      { name: "UI/UX Design", level: 75 },
+    ];
+
+    return (
+      <div
+        ref={ref}
+        className="col-span-1 row-span-2 bg-zinc-900 rounded-md p-5 py-6"
+      >
+        <p className="font-bold text-base md:text-lg mb-4">Skill Set</p>
+
+        <div className="space-y-4">
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              style={{
+                opacity: animated ? 1 : 0,
+                transform: animated ? "translateX(0)" : "translateX(-12px)",
+                transition: `opacity 0.4s ease ${index * 0.08}s, transform 0.4s ease ${index * 0.08}s`,
+              }}
+            >
+              <div className="flex justify-between text-sm mb-1">
+                <span>{skill.name}</span>
+                <span className="text-orange-400">{skill.level}%</span>
+              </div>
+
+              <div className="w-full h-2 bg-zinc-700 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full"
+                  style={{
+                    width: animated ? `${skill.level}%` : "0%",
+                    transition: `width 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1 + 0.2}s`,
+                  }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -399,37 +466,7 @@ export default function home() {
 
         <div className="grid grid-cols-1 md:grid-cols-4 w-full max-w-6xl grid-rows-2 gap-3"
           style={{ gridTemplateRows: 'repeat(2, 250px)' }}>
-          <div className="col-span-1 row-span-2 bg-zinc-900 rounded-md p-5 py-6">
-            <p className="font-bold text-base md:text-lg mb-4">Skill Set</p>
-
-            <div className="space-y-4">
-              {[
-                { name: "HTML", level: 95 },
-                { name: "CSS / Tailwind", level: 90 },
-                { name: "JavaScript", level: 85 },
-                { name: "React / Next.js", level: 80 },
-                { name: "PHP", level: 85 },
-                { name: "MySQL", level: 80 },
-                { name: "UI/UX Design", level: 75 },
-                { name: "UI/UX Design", level: 75 },
-                { name: "UI/UX Design", level: 75 },
-              ].map((skill, index) => (
-                <div key={index}>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span>{skill.name}</span>
-                    <span className="text-orange-400">{skill.level}%</span>
-                  </div>
-
-                  <div className="w-full h-2 bg-zinc-700 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full transition-all duration-500"
-                      style={{ width: `${skill.level}%` }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <SkillSetCard />
 
           <div className="col-span-1 row-span-1 bg-zinc-900 rounded-md p-4">
             card 2
