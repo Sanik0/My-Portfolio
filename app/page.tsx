@@ -148,6 +148,36 @@ export default function home() {
     { icon: <SiTensorflow size={80} color="#FF6F00" />, label: "TensorFlow" },
   ]
 
+  const frontendLogos = [
+    { node: <SiReact />, title: "React", href: "https://react.dev" },
+    { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+    { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+    { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+    { node: <SiJavascript />, title: "JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+    { node: <SiVuedotjs />, title: "Vue", href: "https://vuejs.org" },
+    { node: <SiSass />, title: "Sass", href: "https://sass-lang.com" },
+    { node: <FaBootstrap />, title: "Bootstrap", href: "https://getbootstrap.com" },
+    { node: <SiFlutter />, title: "Flutter", href: "https://flutter.dev" },
+    { node: <SiGreensock />, title: "GSAP", href: "https://greensock.com/gsap" },
+    { node: <SiFigma />, title: "Figma", href: "https://figma.com" },
+  ];
+
+  const backendLogos = [
+    { node: <SiPhp />, title: "PHP", href: "https://php.net" },
+    { node: <SiNodedotjs />, title: "Node.js", href: "https://nodejs.org" },
+    { node: <SiExpress />, title: "Express", href: "https://expressjs.com" },
+    { node: <SiDjango />, title: "Django", href: "https://djangoproject.com" },
+    { node: <SiLaravel />, title: "Laravel", href: "https://laravel.com" },
+    { node: <SiMysql />, title: "MySQL", href: "https://mysql.com" },
+    { node: <SiPostgresql />, title: "PostgreSQL", href: "https://postgresql.org" },
+    { node: <SiMongodb />, title: "MongoDB", href: "https://mongodb.com" },
+    { node: <SiSupabase />, title: "Supabase", href: "https://supabase.com" },
+    { node: <SiPython />, title: "Python", href: "https://python.org" },
+    { node: <FaAws />, title: "AWS", href: "https://aws.amazon.com" },
+    { node: <SiTensorflow />, title: "TensorFlow", href: "https://tensorflow.org" },
+    { node: <SiNumpy />, title: "NumPy", href: "https://numpy.org" },
+  ];
+
   const glowProps = {
     edgeSensitivity: 6,
     glowColor: "40 80 80",
@@ -233,8 +263,8 @@ export default function home() {
     const chartRef = useRef<Chart | null>(null);
 
     const donutSkills = [
-      { label: "UI/UX", value: 35, color: "#f97316" },
-      { label: "Backend", value: 25, color: "#fb923c" },
+      { label: "Frontend", value: 40, color: "#f97316" },
+      { label: "Backend", value: 40, color: "#fb923c" },
       { label: "DevOps", value: 12, color: "#431407" },
       { label: "Other", value: 8, color: "#3f3f46" },
     ];
@@ -277,18 +307,17 @@ export default function home() {
 
     return (
       <div className="col-span-1 row-span-1 bg-zinc-900 rounded-md p-4 flex flex-col justify-between">
-        <p className="text-xs font-medium tracking-widest text-zinc-500 uppercase mb-3">Skills</p>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-center flex-col gap-4">
           <div className="relative flex-shrink-0">
             <canvas ref={canvasRef} width={150} height={150} aria-label="Skill distribution donut chart" />
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-              <span className="text-lg font-semibold text-zinc-100">100%</span>
-              <span className="text-[9px] tracking-widest text-zinc-500 uppercase">Focus</span>
+              <span className="text-lg font-semibold text-white">100%</span>
+              <span className="text-[9px] tracking-widest text-white uppercase">Focus</span>
             </div>
           </div>
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-row gap-1.5">
             {donutSkills.map((s) => (
-              <span key={s.label} className="flex items-center gap-2 text-[11px] text-zinc-400">
+              <span key={s.label} className="flex items-center gap-2 text-[11px] text-white">
                 <span className="w-2 h-2 rounded-sm flex-shrink-0" style={{ background: s.color }} />
                 {s.label} {s.value}%
               </span>
@@ -598,7 +627,28 @@ export default function home() {
           </div>
 
           <div className="col-span-1 row-span-1 bg-zinc-900 rounded-md p-4">
-            Card 4
+            <div style={{ position: 'relative', overflow: 'hidden', marginTop: '30px' }} className="w-full flex items-center justify-center">
+              <LogoLoop
+                logos={frontendLogos}
+                speed={80}
+                direction="left"
+                logoHeight={60}
+                gap={60}
+                hoverSpeed={0}
+                useCustomRender={false}
+              />
+            </div>
+            <div style={{ position: 'relative', overflow: 'hidden', marginTop: '30px' }} className="w-full flex items-center justify-center">
+              <LogoLoop
+                logos={backendLogos}
+                speed={80}
+                direction="right"
+                logoHeight={60}
+                gap={60}
+                hoverSpeed={0}
+                useCustomRender={false}
+              />
+            </div>
           </div>
         </div>
 
