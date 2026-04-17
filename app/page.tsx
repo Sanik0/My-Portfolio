@@ -192,6 +192,58 @@ export default function home() {
     colors: ['#c084fc', '#f472b6', '#38bdf8'],
   }
 
+  function ProjectCard({
+    image,
+    title,
+    description,
+    stack = [],
+  }) {
+    return (
+      <div className="group w-full max-w-xl bg-zinc-900 rounded-md overflow-hidden shadow-lg border border-zinc-800 hover:border-orange-500 transition-all duration-300">
+
+        {/* Image */}
+        <div className="relative w-full h-55 overflow-hidden">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+
+          {/* Overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+        </div>
+
+        {/* Content */}
+        <div className="p-5 flex flex-col gap-3">
+          {/* Title */}
+          <h3 className="text-lg font-semibold text-white group-hover:text-orange-400 transition">
+            {title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-sm text-zinc-400 leading-relaxed">
+            {description}
+          </p>
+
+          {/* Stack */}
+          <div className="flex flex-wrap gap-2 mt-2">
+            {stack.map((tech, index) => (
+              <span
+                key={index}
+                className="text-xs px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom accent line */}
+        <div className="h-[2px] w-0 bg-orange-500 group-hover:w-full transition-all duration-500" />
+      </div>
+    );
+  }
+
   function SkillSetCard() {
     const [animated, setAnimated] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
@@ -387,7 +439,7 @@ export default function home() {
             <BlurText
               text="Hello World!"
               delay={200}
-              animateBy="words"
+              animateBy="letters"
               direction="top"
               onAnimationComplete={handleAnimationComplete}
               className="text-4xl md:text-6xl font-semibold"
@@ -657,52 +709,37 @@ export default function home() {
       </div>
 
       {/* PORJECTS SECTIOn */}
-      <div className="w-full py-16 md:py-20 px-5 flex items-center justify-center">
-        
-        <div className="w-fill flex px-5 gap-20 md:px-0">
-          <div className="w-full max-w-xl">
-            <TiltedCard
-              imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
-              altText="Kendrick Lamar - GNX Album Cover"
-              captionText="Kendrick Lamar - GNX"
-              containerHeight="350px"
-              containerWidth="100%"
-              imageHeight="350px"
-              imageWidth="500px"
-              rotateAmplitude={12}
-              scaleOnHover={1.20}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent
-              overlayContent={
-                <p className="tilted-card-demo-text bg-orange-600 px-4 rounded-base py-2">
-                  Kendrick Lamar - GNX
-                </p>
-              }
-            />
-          </div>
+      <div className="w-full flex gap-15 flex-col items-center p-5 py-16 md:py-20 justify-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-center">SOME OF MY WORKS</h1>
+        <div className="w-fill flex items-center justify-center flex-wrap gap-10 max-w-7xl">
 
-          <div className="w-full max-w-xl">
-            <TiltedCard
-              imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
-              altText="Kendrick Lamar - GNX Album Cover"
-              captionText="Kendrick Lamar - GNX"
-              containerHeight="350px"
-              containerWidth="100%"
-              imageHeight="350px"
-              imageWidth="500px"
-              rotateAmplitude={12}
-              scaleOnHover={1.20}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent
-              overlayContent={
-                <p className="tilted-card-demo-text bg-orange-600 px-4 rounded-base py-2">
-                  Kendrick Lamar - GNX
-                </p>
-              }
-            />
-          </div>
+          <ProjectCard
+            image="https://picsum.photos/seed/picsum/200/300"
+            title="Flashcard AI System"
+            description="Generate Quizlet-style flashcards from PDFs using AI. Built with PHP, MySQL, and Gemini API."
+            stack={["PHP", "MySQL", "JavaScript", "AI"]}
+          />
+
+          <ProjectCard
+            image="https://picsum.photos/seed/picsum/200/300"
+            title="Flashcard AI System"
+            description="Generate Quizlet-style flashcards from PDFs using AI. Built with PHP, MySQL, and Gemini API."
+            stack={["PHP", "MySQL", "JavaScript", "AI"]}
+          />
+
+          <ProjectCard
+            image="https://picsum.photos/seed/picsum/200/300"
+            title="Flashcard AI System"
+            description="Generate Quizlet-style flashcards from PDFs using AI. Built with PHP, MySQL, and Gemini API."
+            stack={["PHP", "MySQL", "JavaScript", "AI"]}
+          />
+
+          <ProjectCard
+            image="https://picsum.photos/seed/picsum/200/300"
+            title="Flashcard AI System"
+            description="Generate Quizlet-style flashcards from PDFs using AI. Built with PHP, MySQL, and Gemini API."
+            stack={["PHP", "MySQL", "JavaScript", "AI"]}
+          />
 
         </div>
       </div>
