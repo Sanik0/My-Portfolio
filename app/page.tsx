@@ -72,7 +72,8 @@ import SplitText from "@/components/SplitText"
 import RotatingText from "@/components/RotatingText"
 import dynamic from "next/dynamic";
 import MetaBalls from "@/components/MetaBalls";
-import FluidGlass from "@/components/FluidGlass";
+import GlassCursorSection from "@/components/GlassCursorSection";
+import TiltedCard from "@/components/TiltedCard";
 
 
 const GitHubCalendar = dynamic(
@@ -656,29 +657,55 @@ export default function home() {
       </div>
 
       {/* PORJECTS SECTIOn */}
-      <div className="w-full">
-        <div style={{ height: '600px', position: 'relative' }}>
-          <FluidGlass
-            mode="lens" // or "bar", "cube"
-            lensProps={{
-              scale: 0.25,
-              ior: 1.15,
-              thickness: 5,
-              chromaticAberration: 0.1,
-              anisotropy: 0.01
-            }}
-            mode="lens"
-            scale={0.25}
-            ior={1.15}
-            thickness={2}
-            transmission={1}
-            roughness={0}
-            chromaticAberration={0.05}
-            anisotropy={0.01}
-          />
+      <div className="w-full py-16 md:py-20 px-5 flex items-center justify-center">
+        
+        <div className="w-fill flex px-5 gap-20 md:px-0">
+          <div className="w-full max-w-xl">
+            <TiltedCard
+              imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+              altText="Kendrick Lamar - GNX Album Cover"
+              captionText="Kendrick Lamar - GNX"
+              containerHeight="350px"
+              containerWidth="100%"
+              imageHeight="350px"
+              imageWidth="500px"
+              rotateAmplitude={12}
+              scaleOnHover={1.20}
+              showMobileWarning={false}
+              showTooltip={false}
+              displayOverlayContent
+              overlayContent={
+                <p className="tilted-card-demo-text bg-orange-600 px-4 rounded-base py-2">
+                  Kendrick Lamar - GNX
+                </p>
+              }
+            />
+          </div>
+
+          <div className="w-full max-w-xl">
+            <TiltedCard
+              imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+              altText="Kendrick Lamar - GNX Album Cover"
+              captionText="Kendrick Lamar - GNX"
+              containerHeight="350px"
+              containerWidth="100%"
+              imageHeight="350px"
+              imageWidth="500px"
+              rotateAmplitude={12}
+              scaleOnHover={1.20}
+              showMobileWarning={false}
+              showTooltip={false}
+              displayOverlayContent
+              overlayContent={
+                <p className="tilted-card-demo-text bg-orange-600 px-4 rounded-base py-2">
+                  Kendrick Lamar - GNX
+                </p>
+              }
+            />
+          </div>
+
         </div>
       </div>
-
     </div>
 
 
