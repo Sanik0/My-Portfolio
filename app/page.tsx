@@ -72,6 +72,7 @@ import SplitText from "@/components/SplitText"
 import RotatingText from "@/components/RotatingText"
 import dynamic from "next/dynamic";
 import MetaBalls from "@/components/MetaBalls";
+import FluidGlass from "@/components/FluidGlass";
 
 
 const GitHubCalendar = dynamic(
@@ -652,6 +653,30 @@ export default function home() {
           </div>
         </div>
 
+      </div>
+
+      {/* PORJECTS SECTIOn */}
+      <div className="w-full">
+        <div style={{ height: '600px', position: 'relative' }}>
+          <FluidGlass
+            mode="lens" // or "bar", "cube"
+            lensProps={{
+              scale: 0.25,
+              ior: 1.15,
+              thickness: 5,
+              chromaticAberration: 0.1,
+              anisotropy: 0.01
+            }}
+            mode="lens"
+            scale={0.25}
+            ior={1.15}
+            thickness={2}
+            transmission={1}
+            roughness={0}
+            chromaticAberration={0.05}
+            anisotropy={0.01}
+          />
+        </div>
       </div>
 
     </div>
